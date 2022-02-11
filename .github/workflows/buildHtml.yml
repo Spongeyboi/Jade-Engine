@@ -47,7 +47,7 @@ jobs:
           haxelib run lime setup
           haxelib run lime setup flixel
           haxelib install flixel-tools --quiet
-          haxelib run flixel-tools setup
+          haxelib run flixel-tools setup --never
           haxelib install flixel-addons --quiet
           haxelib install flixel-ui --quiet
           haxelib install hscript --quiet
