@@ -89,7 +89,7 @@ jobs:
       - name: Deploy to heroku
         env: 
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: jade-engine
+          HEROKU_APP_NAME: spongeyboi/jade-web
         working-directory: build/artifact
         # Git config since git will obviously ask for it
         run: |
@@ -98,7 +98,7 @@ jobs:
           git add *
           git config user.email a@a
           git config user.name a
-          git remote add origin https://github.com/${{ secrets.HEROKU_API_KEY }}
+          git remote add origin https://github.com/${{ secrets.HEROKU_APP_NAME }}
           git commit -m "Gihub actions commit" --allow-empty
           git branch
           git show-ref
