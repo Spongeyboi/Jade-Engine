@@ -86,3 +86,18 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
         working-directory: build/artifact
+      - name: Deploy to heroku
+        env: 
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+        working-directory: build/artifact
+        # Git config since git will obviously ask for it
+        run: |
+          git init
+          git add *
+          git config user.email a@a
+          git config user.name a
+          heroku git:remote -a ${{ secrets.HEROKU_APP_NAME }}
+          git commit -m "Github actions commit"
+          git push heroku main
+          
