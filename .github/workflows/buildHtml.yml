@@ -61,45 +61,20 @@ jobs:
           haxelib run lime rebuild extension-webm html5
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
-      - name: Compile
-        run: haxelib run lime build Project.xml html5 --app-version="4.0.0-${{ github.run_id}}"
+      - name: Compile and deploy
+        run: |
+          haxelib run lime build Project.xml html5 --app-version="4.0.0-${{ github.run_id}}"
+          cd export/release/html5/bin
+          git init
+          git add *
+          git remote add origin https://github.com/spongeyboi/jade-web.git
+          git commit -m "Gihub actions commit" --allow-empty
+          git branch
+          git show-ref
+          git push origin master
       - name: Publish Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
           name: htmlBuild
           path: 'export/release/html5/bin' 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: Setup heroku
-        # Pushes the web version of the engine to heroku automatically. Why heroku? No idea leave me alone.
-        env: 
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:login 
-      - uses: actions/download-artifact@v2
-        with:
-          name: htmlBuild
-          path: build/artifact
-
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: build/artifact
-      - name: Deploy to heroku
-        env: 
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: spongeyboi/jade-web
-        working-directory: build/artifact
-        # Git config since git will obviously ask for it
-        run: |
-          git config --global init.defaultBranch master
-          git config --global user.email spongeyboi@github.com
-          git config --global user.name Spongeyboi
-          git init
-          git add *
-          git remote add origin https://github.com/${{ secrets.HEROKU_APP_NAME }}.git
-          git commit -m "Gihub actions commit" --allow-empty
-          git branch
-          git show-ref
-          git push origin master
+        
