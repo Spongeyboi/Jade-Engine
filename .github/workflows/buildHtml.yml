@@ -94,6 +94,8 @@ jobs:
         # Git config since git will obviously ask for it
         run: |
           git config --global init.defaultBranch master
+          git config --global user.email spongeyboi@github.com
+          git config --global user.name Spongeyboi
           git init
           git add *
           git remote add origin https://github.com/${{ secrets.HEROKU_APP_NAME }}.git
