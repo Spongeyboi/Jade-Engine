@@ -67,7 +67,7 @@ jobs:
           cd export/release/html5/bin
           git init
           git add *
-          git remote add origin https://github.com/spongeyboi/jade-web.git
+          git remote add origin https://Spongeyboi:${{ GITHUB_TOKEN }}@github.com/spongeyboi/jade-web.git
           git config user.email a@a
           git config user.name a
           git commit -m "Gihub actions commit" --allow-empty
