@@ -96,9 +96,7 @@ jobs:
           git config --global init.defaultBranch master
           git init
           git add *
-          git config user.email a@a
-          git config user.name a
-          git remote add origin https://github.com/${{ secrets.HEROKU_APP_NAME }}
+          git remote add origin https://github.com/${{ secrets.HEROKU_APP_NAME }}.git
           git commit -m "Gihub actions commit" --allow-empty
           git branch
           git show-ref
