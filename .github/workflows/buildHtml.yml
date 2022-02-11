@@ -97,7 +97,7 @@ jobs:
           git add *
           git config user.email a@a
           git config user.name a
-          heroku git:remote -a ${{ secrets.HEROKU_APP_NAME }}
+          heroku git:remote -a jade-engine
           git commit -m "Github actions commit"
           git push heroku main
       - name: Final destination
