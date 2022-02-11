@@ -100,6 +100,8 @@ jobs:
           git config user.name a
           heroku git:remote -a jade-engine
           git commit -m "Gihub actions commit" --allow-empty
+          git branch
+          git show-ref
           git push heroku master
       - name: Final destination
         run: |
