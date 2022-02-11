@@ -93,13 +93,14 @@ jobs:
         working-directory: build/artifact
         # Git config since git will obviously ask for it
         run: |
+          git config --global init.defaultBranch master
           git init
           git add *
           git config user.email a@a
           git config user.name a
           heroku git:remote -a jade-engine
-          git commit -m "Github actions commit"
-          git push heroku main
+          git commit -m "Gihub actions commit" --allow-empty
+          git push heroku master
       - name: Final destination
         run: |
           echo Your game is up at ${{ secrets.HEROKU_APP_NAME }}.herokuapp.com (Unless you did something stupid)
