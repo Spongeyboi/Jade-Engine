@@ -100,4 +100,6 @@ jobs:
           heroku git:remote -a ${{ secrets.HEROKU_APP_NAME }}
           git commit -m "Github actions commit"
           git push heroku main
-          
+      - name: Final destination
+        run: |
+          echo Your game is up at ${{ secrets.HEROKU_APP_NAME }}.herokuapp.com (Unless you did something stupid)
