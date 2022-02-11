@@ -41,22 +41,22 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
-          haxelib install lime 7.9.0
-          haxelib install openfl
-          haxelib install flixel
+          haxelib install lime 7.9.0 --quiet
+          haxelib install openfl --quiet
+          haxelib install flixel --quiet
           haxelib run lime setup
           haxelib run lime setup flixel
-          haxelib install flixel-tools
+          haxelib install flixel-tools --quiet
           haxelib run flixel-tools setup
-          haxelib install flixel-addons
-          haxelib install flixel-ui
-          haxelib install hscript
-          haxelib install newgrounds
-          haxelib install linc_luajit
+          haxelib install flixel-addons --quiet
+          haxelib install flixel-ui --quiet
+          haxelib install hscript --quiet
+          haxelib install newgrounds --quiet
+          haxelib install linc_luajit --quiet
           haxelib git faxe https://github.com/uhrobots/faxe
           haxelib git polymod https://github.com/mastereric/polymod
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-          haxelib install actuate
+          haxelib install actuate --quiet
           haxelib git extension-webm https://github.com/KadeDev/extension-webm
           haxelib run lime rebuild extension-webm html5
       - name: Create Version Tag
@@ -89,7 +89,7 @@ jobs:
       - name: Deploy to heroku
         env: 
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+          HEROKU_APP_NAME: jade-engine
         working-directory: build/artifact
         # Git config since git will obviously ask for it
         run: |
