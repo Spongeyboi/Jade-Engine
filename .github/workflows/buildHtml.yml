@@ -98,11 +98,8 @@ jobs:
           git add *
           git config user.email a@a
           git config user.name a
-          heroku git:remote -a jade-engine
+          git remote add origin https://github.com/${{ secrets.HEROKU_API_KEY }}
           git commit -m "Gihub actions commit" --allow-empty
           git branch
           git show-ref
-          git push heroku master
-      - name: Final destination
-        run: |
-          echo Your game is up at ${{ secrets.HEROKU_APP_NAME }}.herokuapp.com (Unless you did something stupid)
+          git push origin master
