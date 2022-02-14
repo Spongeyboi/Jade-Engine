@@ -144,7 +144,7 @@ class TitleState extends MusicBeatState
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 		
-		var bgImg:FlxSprite = new FlxSprite().loadGraphic(Paths.loadImage('TitleBG'));
+		var bgImg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('TitleBG'));
 		bgImg.screenCenter();
 		bgImg.antialiasing = FlxG.save.data.antialiasing;
 		
