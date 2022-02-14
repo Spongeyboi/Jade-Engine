@@ -39,10 +39,10 @@ class OptionsMenu extends MusicBeatState
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		
 		//Note skin text stuff here
-		var h
-		if (FlxG.save.data.noteskin == 1) h = 'Circle note skin' 
-		else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin'
-		else h = 'normal note skin'
+		var h;
+		if (FlxG.save.data.noteskin == 1) h = 'Circle note skin' ;
+		else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin';
+		else h = 'normal note skin';
 		
 		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\nNote skin: '+ h + "\nLoad replays"+"\nCheck for updates");
 		
@@ -133,10 +133,10 @@ class OptionsMenu extends MusicBeatState
 						FlxG.save.data.noteskin = FlxG.save.data.noteskin + 1;
 						if (FlxG.save.data.noteskin > 2) FlxG.save.data.noteskin = 0;
 						
-						var h
-						if (FlxG.save.data.noteskin == 1) h = 'Circle note skin' 
-						else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin'
-						else h = 'normal note skin'
+						var h;
+						if (FlxG.save.data.noteskin == 1) h = 'Circle note skin';
+						else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin';
+						else h = 'normal note skin';
 						
 						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, 'Note skin: ' + h, true, false);
 						ctrl.isMenuItem = true;
