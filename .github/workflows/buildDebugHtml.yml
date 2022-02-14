@@ -64,7 +64,7 @@ jobs:
       - name: Compile and deploy
         run: |
           haxelib run lime build Project.xml html5 -debug --app-version="4.0.0-${{ github.run_id}}"
-          cd export/release/html5/bin
+          cd export/debug/html5/bin
           git init
           git add *
           git remote add origin https://Spongeyboi:${{ secrets.TOKEN }}@github.com/Spongeyboi/fnf-john-web-debug.git
@@ -78,5 +78,5 @@ jobs:
         uses: actions/upload-artifact@v2.2.4
         with:
           name: htmlBuild
-          path: 'export/release/html5/bin' 
+          path: 'export/debug/html5/bin' 
         
