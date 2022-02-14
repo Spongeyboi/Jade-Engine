@@ -144,7 +144,7 @@ class TitleState extends MusicBeatState
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 		
-		var bgImg:FlxSprite = new FlxSprite().loadGraphic(Paths.loadImage('TitleBG', 'preload'));
+		var bgImg:FlxSprite = new FlxSprite().loadGraphic(Paths.loadImage('TitleBG'));
 		bgImg.screenCenter();
 		bgImg.antialiasing = FlxG.save.data.antialiasing;
 		
@@ -285,7 +285,7 @@ class TitleState extends MusicBeatState
 
 				// Get current version of Kade Engine
 
-				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
+				var http = new haxe.Http("https://raw.githubusercontent.com/Spongeyboi/Jade-Engine/master/version.downloadMe");
 
 				http.onData = function (data:String) {
 				  
