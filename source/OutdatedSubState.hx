@@ -97,7 +97,7 @@ class OutdatedSubState extends MusicBeatState
 	{
 		if (controls.ACCEPT && MainMenuState.nightly == "")
 		{
-			fancyOpenURL("https://kadedev.github.io/Kade-Engine/changelogs/changelog-" + needVer);
+			fancyOpenURL("https://spongeyboi.github.io/Jade-Engine/changelogs/changelog-" + needVer);
 		}
 		else if (controls.ACCEPT)
 		{
