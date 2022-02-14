@@ -34,7 +34,7 @@ class OptionsMenu extends MusicBeatState
 			FlxG.save.data.dfjk = false;
 
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + "\nLoad replays"+"\nCheck for updates");
+		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\nNote skin: '+ 'skin '+(FlxG.save.data.noteskin+1) + "\nLoad replays"+"\nCheck for updates");
 		
 		trace(controlsStrings);
 
@@ -119,10 +119,17 @@ class OptionsMenu extends MusicBeatState
 						ctrl.isMenuItem = true;
 						ctrl.targetY = curSelected - 2;
 						grpControls.add(ctrl);
-					case 3:
+					case 4:
+						if (FlxG.save.data.noteskin == 2) FlxG.save.data.noteskin = 0;
+						FlxG.save.data.noteskin = FlxG.save.data.downscroll + 1;
+						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, 'Note skin: '+ 'skin '+(FlxG.save.data.noteskin+1), true, false);
+						ctrl.isMenuItem = true;
+						ctrl.targetY = curSelected - 3;
+						grpControls.add(ctrl);
+					case 5:
 						trace('switch');
 						FlxG.switchState(new LoadReplayState());
-					case 4: 
+					case 6: 
 						trace('wants update lol');
 						FlxG.switchState(new OutdatedSubState());
 				}
