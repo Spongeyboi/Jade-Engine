@@ -1173,7 +1173,16 @@ class PlayState extends MusicBeatState
 					}
 
 				default:
-					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
+					switch (FlxG.save.data.noteskin)
+					{
+						case 1:
+							babyArrow.frames = Paths.getSparrowAtlas('notes/NoteSkin1');
+						case 2: 
+							babyArrow.frames = Paths.getSparrowAtlas('notes/NoteSkin2');
+						default:
+							babyArrow.frames = Paths.getSparrowAtlas('notes/NoteSkin0');
+					}
+					
 					babyArrow.animation.addByPrefix('green', 'arrowUP');
 					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
 					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
