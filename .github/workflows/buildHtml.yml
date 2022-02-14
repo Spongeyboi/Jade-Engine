@@ -43,7 +43,7 @@ jobs:
           haxelib setup C:/haxelib
           haxelib install lime 7.9.0 --quiet
           haxelib install openfl --quiet
-          haxelib git flixel https://github.com/Spongeyboi/baskdixel.git
+          haxelib install flixel
           haxelib run lime setup
           haxelib run lime setup flixel
           haxelib install flixel-tools --quiet
