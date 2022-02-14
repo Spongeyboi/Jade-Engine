@@ -1,4 +1,4 @@
-![KadeEngineLogo](https://user-images.githubusercontent.com/26305836/110529589-4b4eb600-80ce-11eb-9c44-e899118b0bf0.png)
+![JadeEngineLogo](https://github.com/Spongeyboi/Jade-Engine/raw/master/jadeLogo.png)
 
 ![image](https://user-images.githubusercontent.com/26305836/110532077-3c1d3780-80d1-11eb-8348-0e63d5c0f4f1.png)
 
@@ -9,19 +9,22 @@
 ![image](https://user-images.githubusercontent.com/26305836/110532204-63740480-80d1-11eb-9641-bf5a641e6d77.png)
 
 
-# Friday Night Funkin Kade Engine
+# Friday Night Funkin Jade Engine
 
-This is the repository for Friday Night Funkin Kade Engine, a game originally made for Ludum Dare 47 "Stuck In a Loop". And a compleltly reworked engine.
+Friday Night Funkin: Jade Engine is a custom version of Kade Engine (specifically, KE-1.0) with a hell ton of more features to improve your overall experience with fnf.
 
+**Links**
+Play Jade Engine online here: https://spongeyboi.github.io/Jade-web/
 Play the Ludum Dare prototype here: https://ninja-muffin24.itch.io/friday-night-funkin
-Play the Newgrounds one here: https://www.newgrounds.com/portal/view/770371
-Support the project on the itch.io page: https://ninja-muffin24.itch.io/funkin
+Play the Tankman week one here: https://www.newgrounds.com/portal/view/770371
+Support the damn project on the itch.io page: https://ninja-muffin24.itch.io/funkin
+Bother Ninjamuffin99 to improve the input system here: https://github.com/ninjamuffin99/funkin/issues/new
 
 Mod Page: TBD
 	
-## What is Kade Engine?
+## What is Jade Engine?
 
-Kade Engine is a engine rework of the OG games engine. Simply put, we give you some great new features while also giving you the latest github features.
+Friday Night Funkin: Jade Engine is Kade Engine but better. Obviously
 
 ## Features
 
