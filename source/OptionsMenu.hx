@@ -132,7 +132,7 @@ class OptionsMenu extends MusicBeatState
 						grpControls.add(ctrl);
 					case 3:
 						FlxG.save.data.noteskin = FlxG.save.data.noteskin + 1;
-						if (FlxG.save.data.noteskin > 2) FlxG.save.data.noteskin = 0;
+						if (FlxG.save.data.noteskin > 3) FlxG.save.data.noteskin = 0;
 						
 						var h;
 						if (FlxG.save.data.noteskin == 1) h = 'Circle note skin';
