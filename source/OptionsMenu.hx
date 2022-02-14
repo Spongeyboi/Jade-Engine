@@ -42,6 +42,7 @@ class OptionsMenu extends MusicBeatState
 		var h;
 		if (FlxG.save.data.noteskin == 1) h = 'Circle note skin' ;
 		else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin';
+		else if (FlxG.save.data.noteskin == 3) h = 'flixel note skin';
 		else h = 'normal note skin';
 		
 		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\nLoad replays"+"\nCheck for updates");
@@ -136,6 +137,7 @@ class OptionsMenu extends MusicBeatState
 						var h;
 						if (FlxG.save.data.noteskin == 1) h = 'Circle note skin';
 						else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin';
+						else if (FlxG.save.data.noteskin == 3) h = 'flixel note skin';
 						else h = 'normal note skin';
 						
 						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, h, true, false);
