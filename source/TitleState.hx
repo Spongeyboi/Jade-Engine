@@ -133,7 +133,7 @@ class TitleState extends MusicBeatState
 		// bg.antialiasing = true;
 		// bg.setGraphicSize(Std.int(bg.width * 0.6));
 		// bg.updateHitbox();
-		add(bg);
+		// add(bg);
 
 		logoBl = new FlxSprite(-150, -100);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
@@ -144,8 +144,7 @@ class TitleState extends MusicBeatState
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 		
-		background = new FlxSprite(FlxG.width, FlxG.height);
-		background.frames = Paths.getSparrowAtlas('titleBg');
+		background = new FlxSprite(FlxG.width, FlxG.height,'TitleBg');
 		
 		gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
 		gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
