@@ -1179,7 +1179,7 @@ class PlayState extends MusicBeatState
 							babyArrow.frames = Paths.getSparrowAtlas('notes/NoteSkin1');
 						case 2: 
 							babyArrow.frames = Paths.getSparrowAtlas('notes/NoteSkin2');
-						case 2: 
+						case 3: 
 							babyArrow.frames = Paths.getSparrowAtlas('notes/NoteSkin3');
 						default:
 							babyArrow.frames = Paths.getSparrowAtlas('notes/NoteSkin0');
