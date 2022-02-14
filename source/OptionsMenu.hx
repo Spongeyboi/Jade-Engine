@@ -34,7 +34,7 @@ class OptionsMenu extends MusicBeatState
 			FlxG.save.data.dfjk = false;
 
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + "\nLoad replays");
+		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + "\nLoad replays"+"\nCheck for updates");
 		
 		trace(controlsStrings);
 
@@ -122,6 +122,9 @@ class OptionsMenu extends MusicBeatState
 					case 3:
 						trace('switch');
 						FlxG.switchState(new LoadReplayState());
+					case 4: 
+						trace('wants update lol');
+						FlxG.switchState(new OutdatedSubState());
 				}
 			}
 	}
