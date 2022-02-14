@@ -44,7 +44,7 @@ class OptionsMenu extends MusicBeatState
 		else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin';
 		else h = 'normal note skin';
 		
-		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\nNote skin: '+ h + "\nLoad replays"+"\nCheck for updates");
+		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\nLoad replays"+"\nCheck for updates");
 		
 		trace(controlsStrings);
 
@@ -102,7 +102,7 @@ class OptionsMenu extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (curSelected != 3)
+				if (curSelected != 4 || curSelected != 5)
 					grpControls.remove(grpControls.members[curSelected]);
 				switch(curSelected)
 				{
@@ -138,7 +138,7 @@ class OptionsMenu extends MusicBeatState
 						else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin';
 						else h = 'normal note skin';
 						
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, 'Note skin: ' + h, true, false);
+						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, h, true, false);
 						ctrl.isMenuItem = true;
 						ctrl.targetY = curSelected - 3;
 						grpControls.add(ctrl);
