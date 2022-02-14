@@ -80,7 +80,15 @@ class Note extends FlxSprite
 				updateHitbox();
 
 			default:
-				frames = Paths.getSparrowAtlas('NOTE_assets');
+				switch (FlxG.save.data.noteskin)
+					{
+						case 1:
+							frames = Paths.getSparrowAtlas('notes/NoteSkin1');
+						case 2: 
+							frames = Paths.getSparrowAtlas('notes/NoteSkin2');
+						default:
+							frames = Paths.getSparrowAtlas('notes/NoteSkin0');
+					}
 
 				animation.addByPrefix('greenScroll', 'green0');
 				animation.addByPrefix('redScroll', 'red0');
