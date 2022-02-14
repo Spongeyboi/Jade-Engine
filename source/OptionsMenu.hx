@@ -29,6 +29,9 @@ class OptionsMenu extends MusicBeatState
 
 		if (FlxG.save.data.downscroll == null)
 			FlxG.save.data.downscroll = false;
+		
+		if (FlxG.save.data.noteskin == null)
+			FlxG.save.data.noteskin = 0;
 
 		if (FlxG.save.data.dfjk == null)
 			FlxG.save.data.dfjk = false;
