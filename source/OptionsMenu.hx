@@ -37,7 +37,14 @@ class OptionsMenu extends MusicBeatState
 			FlxG.save.data.dfjk = false;
 
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\nNote skin: '+ 'skin '+(FlxG.save.data.noteskin+1) + "\nLoad replays"+"\nCheck for updates");
+		
+		//Note skin text stuff here
+		var h
+		if (FlxG.save.data.noteskin == 1) h = 'Circle note skin' 
+		else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin'
+		else h = 'normal note skin'
+		
+		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\nNote skin: '+ h + "\nLoad replays"+"\nCheck for updates");
 		
 		trace(controlsStrings);
 
@@ -122,17 +129,23 @@ class OptionsMenu extends MusicBeatState
 						ctrl.isMenuItem = true;
 						ctrl.targetY = curSelected - 2;
 						grpControls.add(ctrl);
-					case 4:
-						if (FlxG.save.data.noteskin == 2) FlxG.save.data.noteskin = 0;
-						FlxG.save.data.noteskin = FlxG.save.data.downscroll + 1;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, 'Note skin: '+ 'skin '+(FlxG.save.data.noteskin+1), true, false);
+					case 3:
+						FlxG.save.data.noteskin = FlxG.save.data.noteskin + 1;
+						if (FlxG.save.data.noteskin > 2) FlxG.save.data.noteskin = 0;
+						
+						var h
+						if (FlxG.save.data.noteskin == 1) h = 'Circle note skin' 
+						else if (FlxG.save.data.noteskin == 2) h = 'ddr note skin'
+						else h = 'normal note skin'
+						
+						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, 'Note skin: ' + h, true, false);
 						ctrl.isMenuItem = true;
 						ctrl.targetY = curSelected - 3;
 						grpControls.add(ctrl);
-					case 5:
+					case 4:
 						trace('switch');
 						FlxG.switchState(new LoadReplayState());
-					case 6: 
+					case 5: 
 						trace('wants update lol');
 						FlxG.switchState(new OutdatedSubState());
 				}
