@@ -87,6 +87,8 @@ class Note extends FlxSprite
 							frames = Paths.getSparrowAtlas('notes/NoteSkin1');
 						case 2: 
 							frames = Paths.getSparrowAtlas('notes/NoteSkin2');
+						case 3: 
+							frames = Paths.getSparrowAtlas('notes/NoteSkin3');
 						default:
 							frames = Paths.getSparrowAtlas('notes/NoteSkin0');
 					}
