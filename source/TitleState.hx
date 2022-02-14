@@ -64,7 +64,7 @@ class TitleState extends MusicBeatState
 		FlxG.save.bind('funkin', 'ninjamuffin99');
 		if (FlxG.save.data.noteskin != null)
 		{
-			FlxG.save.data.noteskin = 0;
+			FlxG.save.bind('noteskin',0);
 		}
 
 		Highscore.load();
