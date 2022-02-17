@@ -45,7 +45,7 @@ class OptionsMenu extends MusicBeatState
 		else if (FlxG.save.data.noteskin == 3) h = 'flixel note skin';
 		else h = 'normal note skin';
 		
-		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\nLoad replays"+"\nCheck for updates");
+		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\nLoad replays" + "Return");
 		
 		trace(controlsStrings);
 
@@ -103,7 +103,7 @@ class OptionsMenu extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (curSelected != 4)
+				if (curSelected != 4 && curSelected != 5)
 					grpControls.remove(grpControls.members[curSelected]);
 				switch(curSelected)
 				{
@@ -147,37 +147,10 @@ class OptionsMenu extends MusicBeatState
 					case 4:
 						trace('switch');
 						FlxG.switchState(new LoadReplayState());
-					case 5: 
-						trace('wants update lol');
-						var http = new haxe.Http("https://raw.githubusercontent.com/Spongeyboi/Jade-Engine/master/version.downloadMe");
-
-						http.onData = function (data:String) {
-
-							if (!MainMenuState.kadeEngineVer.contains(data.trim()) && !OutdatedSubState.leftState)
-							{
-								trace('outdated lmao! ' + data.trim() + ' != ' + MainMenuState.kadeEngineVer);
-								OutdatedSubState.needVer = data;
-								FlxG.switchState(new OutdatedSubState());
-							}
-							else
-							{
-								var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, "No updates needed", true, false);
-								  ctrl.isMenuItem = true;
-								  ctrl.targetY = curSelected - 5;
-								  grpControls.add(ctrl);
-							}
-						}
-
-						http.onError = function (error) {
-						  trace('error: $error');
-						  var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, "Error checking for updates", true, false);
-						  ctrl.isMenuItem = true;
-						  ctrl.targetY = curSelected - 5;
-						  grpControls.add(ctrl);
-						}
-
-						http.request();
-						FlxG.switchState(new OutdatedSubState());
+					case 5:
+						trace('switch');
+						FlxG.switchState(new MainMenuState());
+					
 				}
 			}
 	}
