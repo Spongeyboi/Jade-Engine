@@ -45,7 +45,7 @@ class OptionsMenu extends MusicBeatState
 		else if (FlxG.save.data.noteskin == 3) h = 'flixel note skin';
 		else h = 'normal note skin';
 		
-		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\nLoad replays" + "Return");
+		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\nLoad replays");
 		
 		trace(controlsStrings);
 
@@ -147,9 +147,6 @@ class OptionsMenu extends MusicBeatState
 					case 4:
 						trace('switch');
 						FlxG.switchState(new LoadReplayState());
-					case 5:
-						trace('switch');
-						FlxG.switchState(new MainMenuState());
 					
 				}
 			}
