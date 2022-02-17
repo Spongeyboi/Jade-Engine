@@ -91,7 +91,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.06);
 
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "FNF" + gameVer "\nJade Engine" + KadeEngineVer, 11);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "FNF" + gameVer + "\nJade Engine" + KadeEngineVer, 11);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
