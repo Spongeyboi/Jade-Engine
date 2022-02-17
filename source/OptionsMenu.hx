@@ -103,7 +103,7 @@ class OptionsMenu extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (curSelected != 4 || curSelected != 5)
+				if (curSelected != 4)
 					grpControls.remove(grpControls.members[curSelected]);
 				switch(curSelected)
 				{
@@ -149,6 +149,34 @@ class OptionsMenu extends MusicBeatState
 						FlxG.switchState(new LoadReplayState());
 					case 5: 
 						trace('wants update lol');
+						var http = new haxe.Http("https://raw.githubusercontent.com/Spongeyboi/Jade-Engine/master/version.downloadMe");
+
+						http.onData = function (data:String) {
+
+							if (!MainMenuState.kadeEngineVer.contains(data.trim()) && !OutdatedSubState.leftState)
+							{
+								trace('outdated lmao! ' + data.trim() + ' != ' + MainMenuState.kadeEngineVer);
+								OutdatedSubState.needVer = data;
+								FlxG.switchState(new OutdatedSubState());
+							}
+							else
+							{
+								var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, "No updates needed", true, false);
+								  ctrl.isMenuItem = true;
+								  ctrl.targetY = curSelected - 5;
+								  grpControls.add(ctrl);
+							}
+						}
+
+						http.onError = function (error) {
+						  trace('error: $error');
+						  var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, "Error checking for updates", true, false);
+						  ctrl.isMenuItem = true;
+						  ctrl.targetY = curSelected - 5;
+						  grpControls.add(ctrl);
+						}
+
+						http.request();
 						FlxG.switchState(new OutdatedSubState());
 				}
 			}
