@@ -54,6 +54,7 @@ class PlayState extends MusicBeatState
 	public static var bads:Int = 0;
 	public static var goods:Int = 0;
 	public static var sicks:Int = 0;
+	public static var awesomes:Int = 0;
 
 	public static var rep:Replay;
 	public static var loadRep:Bool = false;
@@ -157,6 +158,7 @@ class PlayState extends MusicBeatState
 		bads = 0;
 		shits = 0;
 		goods = 0;
+		awesomes = 0;
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -1802,6 +1804,14 @@ class PlayState extends MusicBeatState
 					ss = false;
 					goods++;
 				}
+				else if (noteDiff > Conductor.safeZoneOffset * 0.05)
+				{
+					daRating = 'awesome';
+					totalNotesHit += 1.25;
+					score = 500;
+					ss = false;
+					awesomes++;
+				}
 			if (daRating == 'sick')
 			{
 				totalNotesHit += 1;
@@ -2246,6 +2256,36 @@ class PlayState extends MusicBeatState
 	{
 		if (!boyfriend.stunned)
 		{
+			if (!curStage.startsWith('school')){
+				var rating:FlxSprite = new FlxSprite();
+
+				rating.loadGraphic(Paths.image("miss"));
+
+				rating.screenCenter();
+
+				rating.x = coolText.x - 40;
+
+				rating.y -= 60;
+
+				rating.acceleration.y = 550;
+
+				rating.velocity.y -= FlxG.random.int(140, 175);
+
+				rating.velocity.x -= FlxG.random.int(0, 10);
+
+				add(rating);
+
+				rating.updateHitbox();
+				
+				FlxTween.tween(rating, {alpha: 0}, 0.2, {
+					onComplete: function(tween:FlxTween)
+					{
+						rating.destroy();
+					},
+				startDelay: Conductor.crochet * 0.001
+				});
+			}
+			
 			health -= 0.04;
 			if (combo > 5 && gf.animOffsets.exists('sad'))
 			{
