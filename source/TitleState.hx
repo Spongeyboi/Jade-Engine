@@ -299,13 +299,11 @@ class TitleState extends MusicBeatState
 						OutdatedSubState.needVer = returnedData[0];
 						OutdatedSubState.currChanges = returnedData[1];
 						FlxG.switchState(new OutdatedSubState());
-						clean();
 					}
 					else
 					{
 						trace('Up to date');
 						FlxG.switchState(new MainMenuState());
-						clean();
 					}
 				}
 				
