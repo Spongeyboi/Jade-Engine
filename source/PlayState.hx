@@ -1344,8 +1344,18 @@ class PlayState extends MusicBeatState
 		}
 
 		super.update(elapsed);
-
-		scoreTxt.text = "Score:" + songScore + " | Misses:" + misses + " | " + (fc ? "Perfect" : misses == 0 ? "Sick" : accuracy <= 90 ? "Great" : accuracy <= 75 ? "Ok" : accuracy <= 75 ? "Bad" : accuracy <= 30 ? "Terrible" : "") + "(" + truncateFloat(accuracy, 2) + "%)";
+		
+		var rat = "???"
+				if (accuracy == 100) rat = "Perfect";
+				else if (accuracy >= 90 < 100) rat = "Sick";
+				else if (accuracy >= 80 < 90) rat = "Great";
+				else if (accuracy >= 70 < 80) rat = "Good";
+				else if (accuracy >= 50 < 70) rat = "Okay";
+				else if (accuracy >= 30 < 50) rat = "Bad";
+				else rat = "Terrible";
+				
+				
+		scoreTxt.text = "Score:" + songScore + " | Misses:" + misses + " | " + (rat) + " (" + truncateFloat(accuracy, 2) + "%)" + (fc ? " | FC" : "");
 
 		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
 		{
@@ -2559,7 +2569,7 @@ class PlayState extends MusicBeatState
 		// Take away health for lemon demon (or any character that starts with monster
 		if (SONG.player2.startsWith('monster'))
 		{
-			health = health - 0.01;
+			health = health - 0.1;
 		}
 		
 		// Hardcoding for milf zooms
