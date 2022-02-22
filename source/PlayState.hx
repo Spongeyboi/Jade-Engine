@@ -1343,7 +1343,7 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-		scoreTxt.text = "Score:" + songScore + " | Misses:" + misses + " | " + (fc ? "Perfect" : misses == 0 ? "Sick" : accuracy <= 90 ? "Great" : accuracy <= 75 ? "Ok" : accuracy <= 75 ? "Bad" : accuracy <= 30 ? "Terrible" : "") + + "(" + truncateFloat(accuracy, 2) + "%)";
+		scoreTxt.text = "Score:" + songScore + " | Misses:" + misses + " | " + (fc ? "Perfect" : misses == 0 ? "Sick" : accuracy <= 90 ? "Great" : accuracy <= 75 ? "Ok" : accuracy <= 75 ? "Bad" : accuracy <= 30 ? "Terrible" : "") + "(" + truncateFloat(accuracy, 2) + "%)";
 
 		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
 		{
