@@ -2263,7 +2263,7 @@ class PlayState extends MusicBeatState
 
 				rating.screenCenter();
 
-				rating.x = coolText.x - 40;
+				rating.x = rating.x - 40;
 
 				rating.y -= 60;
 
