@@ -283,26 +283,34 @@ class TitleState extends MusicBeatState
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
 
-				// Get current version of Kade Engine
+				// Get current version of Jade Engine
+				trace('Checking for updates');
 
 				var http = new haxe.Http("https://raw.githubusercontent.com/Spongeyboi/Jade-Engine/master/version.downloadMe");
+				var returnedData:Array<String> = [];
 
-				http.onData = function (data:String) {
-				  
-				  	if (!MainMenuState.kadeEngineVer.contains(data.trim()) && !OutdatedSubState.leftState)
+				http.onData = function(data:String)
+				{
+					returnedData[0] = data.substring(0, data.indexOf(';'));
+					returnedData[1] = data.substring(data.indexOf('-'), data.length);
+					if (!MainMenuState.kadeEngineVer.contains(returnedData[0].trim()) && !OutdatedSubState.leftState)
 					{
-						trace('outdated lmao! ' + data.trim() + ' != ' + MainMenuState.kadeEngineVer);
-						OutdatedSubState.needVer = data;
+						trace('It\'s outdated! ' + returnedData[0] + ' != ' + MainMenuState.kadeEngineVer);
+						OutdatedSubState.needVer = returnedData[0];
+						OutdatedSubState.currChanges = returnedData[1];
 						FlxG.switchState(new OutdatedSubState());
+						clean();
 					}
 					else
 					{
+						trace('Up to date');
 						FlxG.switchState(new MainMenuState());
+						clean();
 					}
 				}
 				
 				http.onError = function (error) {
-				  trace('error: $error');
+				  trace('Error checking for update due to: $error\nHeading to the title');
 				  FlxG.switchState(new MainMenuState()); // fail but we go anyway
 				}
 				
