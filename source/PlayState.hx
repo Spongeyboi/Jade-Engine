@@ -159,6 +159,8 @@ class PlayState extends MusicBeatState
 		shits = 0;
 		goods = 0;
 		awesomes = 0;
+		
+		misses = 0;
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -2554,7 +2556,13 @@ class PlayState extends MusicBeatState
 		// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);
 		wiggleShit.update(Conductor.crochet);
 
-		// HARDCODING FOR MILF ZOOMS!
+		// Take away health for lemon demon (or any character that starts with monster
+		if (SONG.player2.startsWith('monster'))
+		{
+			health = health - 0.01
+		}
+		
+		// Hardcoding for milf zooms
 		if (curSong.toLowerCase() == 'milf' && curBeat >= 168 && curBeat < 200 && camZooming && FlxG.camera.zoom < 1.35)
 		{
 			FlxG.camera.zoom += 0.015;
