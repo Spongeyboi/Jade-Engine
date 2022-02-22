@@ -2559,7 +2559,7 @@ class PlayState extends MusicBeatState
 		// Take away health for lemon demon (or any character that starts with monster
 		if (SONG.player2.startsWith('monster'))
 		{
-			health = health - 0.01
+			health = health - 0.01;
 		}
 		
 		// Hardcoding for milf zooms
