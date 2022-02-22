@@ -32,6 +32,9 @@ class MainMenuState extends MusicBeatState
 	var newInput:Bool = true;
 
 	public static var kadeEngineVer:String = "1.0";
+	
+	
+	
 	public static var gameVer:String = "0.2.7.1";
 
 	var magenta:FlxSprite;
@@ -91,7 +94,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollow, null, 0.06);
 
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "FNF" + gameVer + "\nJade Engine" + kadeEngineVer, 11);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 44, 0, "FNF " + gameVer + "\nJade Engine " + kadeEngineVer, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
