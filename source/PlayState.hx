@@ -2254,6 +2254,8 @@ class PlayState extends MusicBeatState
 
 	function noteMiss(direction:Int = 1):Void
 	{
+		misses++;
+		accuracy = accuracy - 2;
 		if (!boyfriend.stunned)
 		{
 			if (!curStage.startsWith('school')){
