@@ -1345,13 +1345,13 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 		
-		var rat = "???";
+		var rat:String = "???";
 				if (accuracy == 100) rat = "Perfect";
-				else if (accuracy >= 90 < 100) rat = "Sick";
-				else if (accuracy >= 80 < 90) rat = "Great";
-				else if (accuracy >= 70 < 80) rat = "Good";
-				else if (accuracy >= 50 < 70) rat = "Okay";
-				else if (accuracy >= 30 < 50) rat = "Bad";
+				else if (accuracy >= 90 && accuracy < 100) rat = "Sick";
+				else if (accuracy >= 80 && accuracy < 90) rat = "Great";
+				else if (accuracy >= 70 && accuracy < 80) rat = "Good";
+				else if (accuracy >= 50 && accuracy < 70) rat = "Okay";
+				else if (accuracy >= 30 && accuracy < 50) rat = "Bad";
 				else rat = "Terrible";
 				
 				
