@@ -1345,7 +1345,7 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 		
-		var rat = "???"
+		var rat = "???";
 				if (accuracy == 100) rat = "Perfect";
 				else if (accuracy >= 90 < 100) rat = "Sick";
 				else if (accuracy >= 80 < 90) rat = "Great";
