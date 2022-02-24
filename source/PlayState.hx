@@ -2538,6 +2538,13 @@ class PlayState extends MusicBeatState
 		{
 			// dad.dance();
 		}
+		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
+		{
+			for (i in 0...strumLineNotes.length)
+			{
+				strumLineNotes[i].x = Math.sin((curBeat + i*0.25) * Math.pi)
+			}
+		}
 	}
 
 	var lightningStrikeBeat:Int = 0;
@@ -2573,6 +2580,13 @@ class PlayState extends MusicBeatState
 		if (SONG.player2.startsWith('monster'))
 		{
 			health = health - 0.025;
+		}
+		
+		// Hardcoding for blammed zooms
+		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191 && camZooming && FlxG.camera.zoom < 1.35)
+		{
+			FlxG.camera.zoom += 0.02;
+			camHUD.zoom += 0.035;
 		}
 		
 		// Hardcoding for milf zooms
