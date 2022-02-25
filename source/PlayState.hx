@@ -2531,7 +2531,7 @@ class PlayState extends MusicBeatState
 	override function stepHit()
 	{
 		super.stepHit();
-		if (defStrumlines.length == null){
+		if (defStrumlines.length == 0){
 			for (i in 0...playerStrums.length)
 			{
 				defStrumlines.push(playerStrums.members[i].x);
