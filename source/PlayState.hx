@@ -920,7 +920,7 @@ class PlayState extends MusicBeatState
 
 		var swagCounter:Int = 0;
 		
-		defStrumlines = []
+		defStrumlines = [];
 		for (i in 0...playerStrums.length)
 			{
 				defStrumlines.push(playerStrums.members[i].x);
