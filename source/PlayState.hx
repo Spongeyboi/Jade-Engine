@@ -2542,7 +2542,7 @@ class PlayState extends MusicBeatState
 		{
 			for (i in 0...playerStrums.length)
 			{
-				playerStrums.members[i].x = Math.sin((curBeat + i*0.25) * Math.pi);
+				playerStrums.members[i].x = Math.sin((curBeat + i*0.25) * Math.PI);
 			}
 		}
 	}
