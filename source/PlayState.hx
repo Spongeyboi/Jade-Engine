@@ -2281,26 +2281,27 @@ class PlayState extends MusicBeatState
 		accuracy = accuracy - 2;
 		if (!boyfriend.stunned)
 		{
+			var rating:FlxSprite = new FlxSprite();
 			var pixelShitPart1:String = "";
 			var pixelShitPart2:String = "";
 			if (curStage.startsWith('school'))
 			{
 				pixelShitPart1 = 'weeb/pixelUI/';
 				pixelShitPart2 = '-pixel';
-			}
-				var rating:FlxSprite = new FlxSprite();
-			
-			if (!curStage.startsWith('school'))
-			{
-				rating.setGraphicSize(Std.int(rating.width * 0.7));
-				rating.antialiasing = true;
-			}
-			else
-			{
-				rating.setGraphicSize(Std.int(rating.width * daPixelZoom * 0.7));
+				
 			}
 
 				rating.loadGraphic(Paths.image(pixelShitPart1 + "miss" + pixelShitPart2));
+			
+				if (!curStage.startsWith('school'))
+				{
+					rating.setGraphicSize(Std.int(rating.width * 0.7));
+					rating.antialiasing = true;
+				}
+				else
+				{
+					rating.setGraphicSize(Std.int(rating.width * daPixelZoom * 0.7));
+				}
 
 				rating.screenCenter();
 
