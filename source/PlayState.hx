@@ -2289,6 +2289,16 @@ class PlayState extends MusicBeatState
 				pixelShitPart2 = '-pixel';
 			}
 				var rating:FlxSprite = new FlxSprite();
+			
+			if (!curStage.startsWith('school'))
+			{
+				rating.setGraphicSize(Std.int(rating.width * 0.7));
+				rating.antialiasing = true;
+			}
+			else
+			{
+				rating.setGraphicSize(Std.int(rating.width * daPixelZoom * 0.7));
+			}
 
 				rating.loadGraphic(Paths.image(pixelShitPart1 + "miss" + pixelShitPart2));
 
