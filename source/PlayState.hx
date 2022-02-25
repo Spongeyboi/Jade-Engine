@@ -2527,7 +2527,7 @@ class PlayState extends MusicBeatState
 	}
 			
 	
-	var defStrumlines:Array<String>;
+	var defStrumlines:Array<Float>;
 	override function stepHit()
 	{
 		super.stepHit();
