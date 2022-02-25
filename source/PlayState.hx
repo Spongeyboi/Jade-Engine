@@ -2526,7 +2526,7 @@ class PlayState extends MusicBeatState
 		gf.playAnim('scared', true);
 	}
 			
-	var b
+	
 
 	override function stepHit()
 	{
