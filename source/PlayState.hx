@@ -2527,10 +2527,16 @@ class PlayState extends MusicBeatState
 	}
 			
 	
-
+	var defStrumlines:Array<String>;
 	override function stepHit()
 	{
 		super.stepHit();
+		if (defStrumlines.length == null){
+			for (i in 0...playerStrums.length)
+			{
+				defStrumlines.push(playerStrums.members[i].x)
+			}
+		}
 		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
 		{
 			resyncVocals();
@@ -2542,12 +2548,11 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
 		{
-			
 			for (i in 0...playerStrums.length)
 			{
 				trace(playerStrums.members[i].x);
 				//setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*2) * math.pi), i)
-				playerStrums.members[i].x = Math.sin((curBeat + i*2) * Math.PI);
+				playerStrums.members[i].x = defStrumlines[i] * Math.sin((curBeat + i*2) * Math.PI);
 			}
 		}
 	}
