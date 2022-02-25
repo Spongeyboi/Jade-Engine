@@ -2534,7 +2534,7 @@ class PlayState extends MusicBeatState
 		if (defStrumlines.length == null){
 			for (i in 0...playerStrums.length)
 			{
-				defStrumlines.push(playerStrums.members[i].x)
+				defStrumlines.push(playerStrums.members[i].x);
 			}
 		}
 		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
