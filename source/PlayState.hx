@@ -2281,8 +2281,8 @@ class PlayState extends MusicBeatState
 		accuracy = accuracy - 2;
 		if (!boyfriend.stunned)
 		{
-			var pixelShitPart1:String;
-			var pixelShitPart2:String;
+			var pixelShitPart1:String = "";
+			var pixelShitPart2:String = "";
 			if (curStage.startsWith('school'))
 			{
 				pixelShitPart1 = 'weeb/pixelUI/';
