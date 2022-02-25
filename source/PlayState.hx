@@ -146,6 +146,8 @@ class PlayState extends MusicBeatState
 
 	public static var timeCurrently:Float = 0;
 	public static var timeCurrentlyR:Float = 0;
+	
+	public static var defStrumlines:Array<Float>;
 
 	override public function create()
 	{
@@ -917,6 +919,12 @@ class PlayState extends MusicBeatState
 		Conductor.songPosition -= Conductor.crochet * 5;
 
 		var swagCounter:Int = 0;
+		
+		defStrumlines = []
+		for (i in 0...playerStrums.length)
+			{
+				defStrumlines.push(playerStrums.members[i].x);
+			}
 
 		startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
 		{
@@ -2527,16 +2535,10 @@ class PlayState extends MusicBeatState
 	}
 			
 	
-	var defStrumlines:Array<Float>;
+	
 	override function stepHit()
 	{
 		super.stepHit();
-		if (defStrumlines.length == 0){
-			for (i in 0...playerStrums.length)
-			{
-				defStrumlines.push(playerStrums.members[i].x);
-			}
-		}
 		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
 		{
 			resyncVocals();
@@ -2596,7 +2598,7 @@ class PlayState extends MusicBeatState
 		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191 && camZooming && FlxG.camera.zoom < 1.35)
 		{
 			FlxG.camera.zoom += 0.03;
-			camHUD.zoom += 0.4;
+			camHUD.zoom += 0.25;
 		}
 		
 		// Hardcoding for milf zooms
