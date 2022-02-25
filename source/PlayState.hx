@@ -2542,7 +2542,7 @@ class PlayState extends MusicBeatState
 		{
 			for (i in 0...strumLineNotes.length)
 			{
-				strumLineNotes[i].x = Math.sin((curBeat + i*0.25) * Math.pi)
+				strumLineNotes[i].x = Math.sin((curBeat + i*0.25) * Math.pi);
 			}
 		}
 	}
