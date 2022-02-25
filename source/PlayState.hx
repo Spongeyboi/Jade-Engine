@@ -2525,6 +2525,8 @@ class PlayState extends MusicBeatState
 		boyfriend.playAnim('scared', true);
 		gf.playAnim('scared', true);
 	}
+			
+	var b
 
 	override function stepHit()
 	{
@@ -2540,9 +2542,12 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
 		{
+			
 			for (i in 0...playerStrums.length)
 			{
-				playerStrums.members[i].x = Math.sin((curBeat + i*0.25) * Math.PI);
+				trace(playerStrums.members[i].x)
+				//setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*2) * math.pi), i)
+				playerStrums.members[i].x = Math.sin((curBeat + i*2) * Math.PI);
 			}
 		}
 	}
@@ -2585,8 +2590,8 @@ class PlayState extends MusicBeatState
 		// Hardcoding for blammed zooms
 		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191 && camZooming && FlxG.camera.zoom < 1.35)
 		{
-			FlxG.camera.zoom += 0.02;
-			camHUD.zoom += 0.035;
+			FlxG.camera.zoom += 0.03;
+			camHUD.zoom += 0.4;
 		}
 		
 		// Hardcoding for milf zooms
