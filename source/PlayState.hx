@@ -2540,9 +2540,9 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
 		{
-			for (i in 0...PlayState.strumLineNotes.length)
+			for (i in 0...PlayState.playerStrums.length)
 			{
-				PlayState.strumLineNotes.members[i].x = Math.sin((curBeat + i*0.25) * Math.pi);
+				PlayState.playerStrums.members[i].x = Math.sin((curBeat + i*0.25) * Math.pi);
 			}
 		}
 	}
