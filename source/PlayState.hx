@@ -2281,10 +2281,16 @@ class PlayState extends MusicBeatState
 		accuracy = accuracy - 2;
 		if (!boyfriend.stunned)
 		{
-			if (!curStage.startsWith('school')){
+			var pixelShitPart1:String;
+			var pixelShitPart2:String;
+			if (curStage.startsWith('school'))
+			{
+				pixelShitPart1 = 'weeb/pixelUI/';
+				pixelShitPart2 = '-pixel';
+			}
 				var rating:FlxSprite = new FlxSprite();
 
-				rating.loadGraphic(Paths.image("miss"));
+				rating.loadGraphic(Paths.image(pixelShitPart1 + "miss" + pixelShitPart2));
 
 				rating.screenCenter();
 
@@ -2309,7 +2315,6 @@ class PlayState extends MusicBeatState
 					},
 				startDelay: Conductor.crochet * 0.001
 				});
-			}
 			
 			health -= 0.04;
 			if (combo > 5 && gf.animOffsets.exists('sad'))
