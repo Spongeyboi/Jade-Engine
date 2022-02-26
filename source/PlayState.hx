@@ -1353,15 +1353,16 @@ class PlayState extends MusicBeatState
 				// phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed;
 		}
 		
-		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
-		{
-			var i:Int = 0;
-			playerStrums.forEach(function(spr:FlxSprite){
-				//setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*2) * math.pi), i)
-				spr.x = defStrumlines[i] + 32 * Math.sin((curBeat + i*0.25) * Math.PI);
-				i=i+1;
-			});
-		}
+		//If you can get this to work, feel free to open a PR.
+		//if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
+		//{
+		//	var i:Int = 0;
+		//	playerStrums.forEach(function(spr:FlxSprite){
+		//		//setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*2) * math.pi), i)
+		//		spr.x = defStrumlines[i] + 32 * Math.sin((curBeat + i*0.25) * Math.PI);
+		//		i=i+1;
+		//	});
+		//}
 
 		super.update(elapsed);
 		
