@@ -2603,10 +2603,10 @@ class PlayState extends MusicBeatState
 		// FlxG.log.add('change bpm' + SONG.notes[Std.int(curStep / 16)].changeBPM);
 		wiggleShit.update(Conductor.crochet);
 
-		// Take away health for lemon demon (or any character that starts with monster
-		if (SONG.player2.startsWith('monster'))
+		// Take away health for lemon demon and spirit (or any character that starts with monster
+		if (SONG.player2.startsWith('monster') || SONG.player2 == "spirit")
 		{
-			health = health - 0.025;
+			health = health - 0.015;
 		}
 		
 		// Hardcoding for blammed zooms
