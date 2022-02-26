@@ -908,6 +908,7 @@ class PlayState extends MusicBeatState
 
 	function startCountdown():Void
 	{
+		defStrumlines = [];
 		inCutscene = false;
 
 		generateStaticArrows(0);
@@ -920,11 +921,7 @@ class PlayState extends MusicBeatState
 
 		var swagCounter:Int = 0;
 		
-		defStrumlines = [];
-		for (i in 0...playerStrums.length)
-			{
-				defStrumlines.push(playerStrums.members[i].x);
-			}
+		
 
 		startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
 		{
@@ -1261,6 +1258,8 @@ class PlayState extends MusicBeatState
 			babyArrow.x += ((FlxG.width / 2) * player);
 
 			strumLineNotes.add(babyArrow);
+		
+			defStrumlines.push(babyArrow.x);
 		}
 	}
 
@@ -1353,11 +1352,21 @@ class PlayState extends MusicBeatState
 				}
 				// phillyCityLights.members[curLight].alpha -= (Conductor.crochet / 1000) * FlxG.elapsed;
 		}
+		
+		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
+		{
+			var i:Int = 0;
+			playerStrums.forEach(function(spr:FlxSprite){
+				//setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*2) * math.pi), i)
+				spr.x = defStrumlines[i] + 32 * Math.sin((curBeat + i*0.25) * Math.PI);
+				i=i+1;
+			});
+		}
 
 		super.update(elapsed);
 		
 		var rat:String = "???";
-				if (accuracy == 100) rat = "Perfect";
+				if (accuracy >= 100) rat = "Perfect";
 				else if (accuracy >= 90 && accuracy < 100) rat = "Sick";
 				else if (accuracy >= 80 && accuracy < 90) rat = "Great";
 				else if (accuracy >= 70 && accuracy < 80) rat = "Good";
@@ -2563,15 +2572,6 @@ class PlayState extends MusicBeatState
 		if (dad.curCharacter == 'spooky' && curStep % 4 == 2)
 		{
 			// dad.dance();
-		}
-		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
-		{
-			var i:Int = 0;
-			playerStrums.forEach(function(spr:FlxSprite){
-				//setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*2) * math.pi), i)
-				spr.x = defStrumlines[i] + 32 * Math.sin((curBeat + i*0.25) * Math.PI);
-				i=i+1;
-			});
 		}
 	}
 
