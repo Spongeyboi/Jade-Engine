@@ -2571,7 +2571,7 @@ class PlayState extends MusicBeatState
 				//setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*2) * math.pi), i)
 				spr.x = defStrumlines[i] + 32 * Math.sin((curBeat + i*0.25) * Math.PI);
 				i=i+1;
-			})
+			});
 		}
 	}
 
