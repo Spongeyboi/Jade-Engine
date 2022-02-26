@@ -2566,10 +2566,11 @@ class PlayState extends MusicBeatState
 		}
 		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
 		{
-			for (i in 0...playerStrums.length)
-			{
+			var i:Int = 0;
+			playerStrums.forEach(function(spr:FlxSprite){
 				//setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*2) * math.pi), i)
-				playerStrums.members[i].x = defStrumlines[i] + 32 * Math.sin((curBeat + i*0.25) * Math.PI);
+				spr.x = defStrumlines[i] + 32 * Math.sin((curBeat + i*0.25) * Math.PI);
+				i=i+1;
 			}
 		}
 	}
