@@ -2619,8 +2619,8 @@ class PlayState extends MusicBeatState
 		// Hardcoding for blammed zooms
 		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191 && camZooming && FlxG.camera.zoom < 1.35)
 		{
-			FlxG.camera.zoom += 0.02;
-			camHUD.zoom += 0.15;
+			FlxG.camera.zoom += 0.015;
+			camHUD.zoom += 0.03;
 		}
 		
 		// Hardcoding for milf zooms
