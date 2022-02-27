@@ -1356,7 +1356,31 @@ class PlayState extends MusicBeatState
 		
 		//If you can get this to work, feel free to open a PR.
 		//Nvm I found out how to fix this by working on another mod.
-		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 192)
+		if (curSong.toLowerCase() == 'philly' && curBeat >= 40 && curBeat < 105)
+		{
+			if (curBeat < 104){
+				swayNotesInd ++;
+				camHUD.x = Math.sin(swayNotesInd / 100 * 1) * 25;
+				//It goes something like this: camHUD.x = Math.sin(How long it's been going in frames / 100 * Speed of the swaying) * how far to sway the hud/notes;
+			}else{
+				swayNotesInd = 0;
+				camHUD.x = 0;
+			}
+		}
+		if (curSong.toLowerCase() == 'philly' && curBeat >= 168 && curBeat < 233)
+		{
+			if (curBeat < 232){
+				swayNotesInd ++;
+				camHUD.x = Math.sin(swayNotesInd / 100 * 1) * 25;
+				FlxG.camera.angle = Math.sin(swayNotesInd / 100 * 1) * 10;
+				//It goes something like this: camHUD.x = Math.sin(How long it's been going in frames / 100 * Speed of the swaying) * how far to sway the hud/notes;
+			}else{
+				swayNotesInd = 0;
+				camHUD.x = 0;
+				FlxG.camera.angle = 0;
+			}
+		}
+		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 193)
 		{
 			if (curBeat < 192){
 				swayNotesInd ++;
