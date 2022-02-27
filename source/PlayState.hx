@@ -1360,7 +1360,7 @@ class PlayState extends MusicBeatState
 		{
 			if (curBeat < 192){
 				swayNotesInd ++;
-				camHUD.x = Math.sin(swayNotesInd / 100 * swayNotesSpd) * swayNotesRange;
+				camHUD.x = Math.sin(swayNotesInd / 100 * 1) * 25;
 				//It goes something like this: camHUD.x = Math.sin(How long it's been going in frames / 100 * Speed of the swaying) * how far to sway the hud/notes;
 			}else{
 				swayNotesInd = 0;
@@ -1371,7 +1371,8 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 		
 		var rat:String = "???";
-				if (accuracy >= 100) rat = "Perfect";
+				if (accuracy >= 110) rat = "Godly";
+				else if (accuracy >= 100 && accuracy < 110) rat = "Perfect";
 				else if (accuracy >= 90 && accuracy < 100) rat = "Sick";
 				else if (accuracy >= 80 && accuracy < 90) rat = "Great";
 				else if (accuracy >= 70 && accuracy < 80) rat = "Good";
@@ -2618,8 +2619,8 @@ class PlayState extends MusicBeatState
 		// Hardcoding for blammed zooms
 		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191 && camZooming && FlxG.camera.zoom < 1.35)
 		{
-			FlxG.camera.zoom += 0.03;
-			camHUD.zoom += 0.25;
+			FlxG.camera.zoom += 0.02;
+			camHUD.zoom += 0.15;
 		}
 		
 		// Hardcoding for milf zooms
