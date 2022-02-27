@@ -1372,11 +1372,13 @@ class PlayState extends MusicBeatState
 			if (curBeat < 232){
 				swayNotesInd ++;
 				camHUD.x = Math.sin(swayNotesInd / 100 * 1) * 25;
+				camHUD.angle = Math.sin(swayNotesInd / 100 * 1) * 25;
 				FlxG.camera.angle = Math.sin(swayNotesInd / 100 * 1) * 10;
 				//It goes something like this: camHUD.x = Math.sin(How long it's been going in frames / 100 * Speed of the swaying) * how far to sway the hud/notes;
 			}else{
 				swayNotesInd = 0;
 				camHUD.x = 0;
+				camHUD.angle = 0;
 				FlxG.camera.angle = 0;
 			}
 		}
