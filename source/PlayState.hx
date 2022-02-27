@@ -1322,7 +1322,8 @@ class PlayState extends MusicBeatState
 		num = Math.round( num ) / Math.pow(10, precision);
 		return num;
 		}
-
+	
+	var swayNotesInd:Int = 0;
 	override public function update(elapsed:Float)
 	{
 		#if !debug
@@ -1354,15 +1355,18 @@ class PlayState extends MusicBeatState
 		}
 		
 		//If you can get this to work, feel free to open a PR.
-		//if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191)
-		//{
-		//	var i:Int = 0;
-		//	playerStrums.forEach(function(spr:FlxSprite){
-		//		//setActorX(_G['defaultStrum'..i..'X'] + 32 * math.sin((currentBeat + i*2) * math.pi), i)
-		//		spr.x = defStrumlines[i] + 32 * Math.sin((curBeat + i*0.25) * Math.PI);
-		//		i=i+1;
-		//	});
-		//}
+		//Nvm I found out how to fix this by working on another mod.
+		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 192)
+		{
+			if (curBeat < 192){
+				swayNotesInd ++;
+				camHUD.x = Math.sin(swayNotesInd / 100 * swayNotesSpd) * swayNotesRange;
+				//It goes something like this: camHUD.x = Math.sin(How long it's been going in frames / 100 * Speed of the swaying) * how far to sway the hud/notes;
+			}else{
+				swayNotesInd = 0;
+				camHUD.x = 0;
+			}
+		}
 
 		super.update(elapsed);
 		
