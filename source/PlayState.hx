@@ -709,14 +709,18 @@ class PlayState extends MusicBeatState
 		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('healthBar'));
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
-		add(healthBarBG);
-
+		if (!FlxG.save.data.hidehealth){
+			add(healthBarBG);
+		}
+			
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
 		healthBar.createFilledBar(0xFFFF0000, 0xFF66FF33);
 		// healthBar
-		add(healthBar);
+		if (!FlxG.save.data.hidehealth){
+			add(healthBar);
+		}
 
 		// Add Kade Engine watermark
 		//var kadeEngineWatermark = new FlxText(4,FlxG.height - 4,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + " - Jade " + MainMenuState.kadeEngineVer, 16);
@@ -739,12 +743,16 @@ class PlayState extends MusicBeatState
 
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
-		add(iconP1);
+		if (!FlxG.save.data.hidehealth){
+			add(iconP1);
+		}
 
 		iconP2 = new HealthIcon(SONG.player2, false);
 		iconP2.y = healthBar.y - (iconP2.height / 2);
-		add(iconP2);
-
+		if (!FlxG.save.data.hidehealth){
+			add(iconP2);
+		}
+				
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
 		healthBar.cameras = [camHUD];
