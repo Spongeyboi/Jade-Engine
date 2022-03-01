@@ -35,6 +35,9 @@ class OptionsMenu extends MusicBeatState
 
 		if (FlxG.save.data.dfjk == null)
 			FlxG.save.data.dfjk = false;
+		
+		if (FlxG.save.data.hidehealth == null)
+			FlxG.save.data.hidehealth = false;
 
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		
@@ -45,7 +48,7 @@ class OptionsMenu extends MusicBeatState
 		else if (FlxG.save.data.noteskin == 3) h = 'flixel note skin';
 		else h = 'normal note skin';
 		
-		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\nLoad replays");
+		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\n" + (FlxG.save.data.hidehealth ? 'Hide health bar' : 'Show health bar') + "\nLoad replays");
 		
 		trace(controlsStrings);
 
@@ -103,7 +106,7 @@ class OptionsMenu extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (curSelected != 4 && curSelected != 5)
+				if (curSelected != 5)
 					grpControls.remove(grpControls.members[curSelected]);
 				switch(curSelected)
 				{
@@ -145,6 +148,12 @@ class OptionsMenu extends MusicBeatState
 						ctrl.targetY = curSelected - 3;
 						grpControls.add(ctrl);
 					case 4:
+						FlxG.save.data.hidehealth = !FlxG.save.data.hidehealth;
+						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.hidehealth ? 'Hide health bar' : 'Show health bar'), true, false);
+						ctrl.isMenuItem = true;
+						ctrl.targetY = curSelected - 4;
+						grpControls.add(ctrl);
+					case 5:
 						trace('switch');
 						FlxG.switchState(new LoadReplayState());
 					
