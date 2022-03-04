@@ -51,7 +51,7 @@ class OptionsMenu extends MusicBeatState
 		else if (FlxG.save.data.noteskin == 3) h = 'flixel note skin';
 		else h = 'normal note skin';
 		
-		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\n" + (FlxG.save.data.hidehealth ? 'Hide health bar' : 'Show health bar') + "\n" + (FlxG.save.data.memedeath ? 'Normal miss sounds' : 'Meme miss sounds') + "\nLoad replays");
+		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\n" + (FlxG.save.data.hidehealth ? 'Hide health bar' : 'Show health bar') + "\n" + (FlxG.save.data.memedeath ? 'Meme miss sounds' : 'Normal miss sounds') + "\nLoad replays");
 		
 		trace(controlsStrings);
 
@@ -158,7 +158,7 @@ class OptionsMenu extends MusicBeatState
 						grpControls.add(ctrl);
 					case 5:
 						FlxG.save.data.memedeath = !FlxG.save.data.memedeath;
-						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.memedeath ? 'Normal miss sounds' : 'Meme miss sounds'), true, false);
+						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.memedeath ? 'Meme miss sounds' : 'Normal miss sounds'), true, false);
 						ctrl.isMenuItem = true;
 						ctrl.targetY = curSelected - 5;
 						grpControls.add(ctrl);
