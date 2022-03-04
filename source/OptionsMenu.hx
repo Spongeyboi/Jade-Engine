@@ -39,6 +39,9 @@ class OptionsMenu extends MusicBeatState
 		if (FlxG.save.data.hidehealth == null)
 			FlxG.save.data.hidehealth = false;
 
+		if (FlxG.save.data.memedeath == null)
+			FlxG.save.data.memedeath = false;
+
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		
 		//Note skin text stuff here
@@ -48,7 +51,7 @@ class OptionsMenu extends MusicBeatState
 		else if (FlxG.save.data.noteskin == 3) h = 'flixel note skin';
 		else h = 'normal note skin';
 		
-		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\n" + (FlxG.save.data.hidehealth ? 'Hide health bar' : 'Show health bar') + "\nLoad replays");
+		controlsStrings = CoolUtil.coolStringFile((FlxG.save.data.dfjk ? 'DFJK' : 'WASD') + "\n" + (FlxG.save.data.newInput ? "New input" : "Old Input") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + '\n'+ h + "\n" + (FlxG.save.data.hidehealth ? 'Hide health bar' : 'Show health bar') + "\n" + (FlxG.save.data.memedeath ? 'Normal miss sounds' : 'Meme miss sounds') + "\nLoad replays");
 		
 		trace(controlsStrings);
 
@@ -106,7 +109,7 @@ class OptionsMenu extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (curSelected != 5)
+				if (curSelected != 6)
 					grpControls.remove(grpControls.members[curSelected]);
 				switch(curSelected)
 				{
@@ -154,6 +157,12 @@ class OptionsMenu extends MusicBeatState
 						ctrl.targetY = curSelected - 4;
 						grpControls.add(ctrl);
 					case 5:
+						FlxG.save.data.memedeath = !FlxG.save.data.memedeath;
+						var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.memedeath ? 'Normal miss sounds' : 'Meme miss sounds'), true, false);
+						ctrl.isMenuItem = true;
+						ctrl.targetY = curSelected - 5;
+						grpControls.add(ctrl);
+					case 6:
 						trace('switch');
 						FlxG.switchState(new LoadReplayState());
 					

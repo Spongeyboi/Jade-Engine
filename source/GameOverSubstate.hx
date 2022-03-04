@@ -18,6 +18,8 @@ class GameOverSubstate extends MusicBeatSubstate
 	{
 		var daStage = PlayState.curStage;
 		var daBf:String = '';
+		
+		if (!FlxG.save.data.memedeath){
 		switch (daStage)
 		{
 			case 'school':
@@ -28,6 +30,20 @@ class GameOverSubstate extends MusicBeatSubstate
 				daBf = 'bf-pixel-dead';
 			default:
 				daBf = 'bf';
+		}
+		}else{
+		switch (daStage)
+		{
+			case 'school':
+				stageSuffix = '-meme';
+				daBf = 'bf-pixel-dead';
+			case 'schoolEvil':
+				stageSuffix = '-meme';
+				daBf = 'bf-pixel-dead';
+			default:
+				stageSuffix = '-meme';
+				daBf = 'bf';
+		}
 		}
 
 		super();
