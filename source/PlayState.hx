@@ -2386,7 +2386,7 @@ class PlayState extends MusicBeatState
 			songScore -= 10;
 
 			
-			if (!FlxG.save.data.memedeath){}
+			if (!FlxG.save.data.memedeath){
 				FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
 			}else{
 				FlxG.sound.play(Paths.soundRandom('missnote', 1, 3)+'-meme', FlxG.random.float(0.1, 0.2));
