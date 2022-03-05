@@ -1368,7 +1368,7 @@ class PlayState extends MusicBeatState
 		{
 			if (curBeat < 104){
 				swayNotesInd ++;
-				camHUD.x = Math.sin(swayNotesInd / 100 * 1) * 25;
+				camHUD.x = Math.sin(swayNotesInd / 100 * 1) * 100;
 				//It goes something like this: camHUD.x = Math.sin(How long it's been going in frames / 100 * Speed of the swaying) * how far to sway the hud/notes;
 			}else{
 				swayNotesInd = 0;
@@ -1394,7 +1394,7 @@ class PlayState extends MusicBeatState
 		{
 			if (curBeat < 192){
 				swayNotesInd ++;
-				camHUD.x = Math.sin(swayNotesInd / 100 * 1) * 25;
+				camHUD.x = Math.sin(swayNotesInd / 100 * 1) * 50;
 				//It goes something like this: camHUD.x = Math.sin(How long it's been going in frames / 100 * Speed of the swaying) * how far to sway the hud/notes;
 			}else{
 				swayNotesInd = 0;
@@ -1617,7 +1617,7 @@ class PlayState extends MusicBeatState
 			trace("User is cheating!");
 		}
 
-		if (health <= 0)
+		if (health <= 0 && !FlxG.save.data.practicemode)
 		{
 			boyfriend.stunned = true;
 
@@ -2658,8 +2658,8 @@ class PlayState extends MusicBeatState
 		// Hardcoding for blammed zooms
 		if (curSong.toLowerCase() == 'blammed' && curBeat >= 128 && curBeat < 191 && camZooming && FlxG.camera.zoom < 1.35)
 		{
-			FlxG.camera.zoom += 0.015;
-			camHUD.zoom += 0.03;
+			FlxG.camera.zoom += 0.03;
+			camHUD.zoom += 0.05;
 		}
 		
 		// Hardcoding for milf zooms
