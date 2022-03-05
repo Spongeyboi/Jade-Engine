@@ -110,7 +110,7 @@ class PauseSubState extends MusicBeatSubstate
 				case 2:
 					grpMenuShit.remove(grpMenuShit.members[curSelected]);
 					FlxG.save.data.practicemode != FlxG.save.data.practicemode;
-					var ctrl:Alphabet = new Alphabet(0, (70 * i) + 30, (FlxG.save.data.practicemode ? 'Practice mode On' : 'Practice mode Off'), true, false);
+					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.practicemode ? 'Practice mode On' : 'Practice mode Off'), true, false);
 					ctrl.isMenuItem = true;
 					ctrl.targetY = curSelected - 2;
 					grpMenuShit.add(ctrl);
