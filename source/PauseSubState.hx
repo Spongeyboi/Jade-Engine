@@ -100,8 +100,8 @@ class PauseSubState extends MusicBeatSubstate
 
 		if (accepted)
 		{
-			var daSelected:String = menuItems[curSelected];
-			switch (menuItems[curSelected])
+			//var daSelected:String = menuItems[curSelected];
+			switch (curSelected)
 			{
 				case 0:
 					close();
