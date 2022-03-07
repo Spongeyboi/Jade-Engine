@@ -18,7 +18,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 
-	var menuItems:Array<String> = ['Resume', 'Restart Song', (FlxG.save.data.practicemode ? 'Practice mode On' : 'Practice mode Off') , 'Exit to menu'];
+	var menuItems:Array<String> = ['Resume', 'Restart Song', 'Exit to menu'];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
@@ -108,13 +108,6 @@ class PauseSubState extends MusicBeatSubstate
 				case 1:
 					FlxG.resetState();
 				case 2:
-					grpMenuShit.remove(grpMenuShit.members[curSelected]);
-					FlxG.save.data.practicemode != FlxG.save.data.practicemode;
-					var ctrl:Alphabet = new Alphabet(0, (70 * curSelected) + 30, (FlxG.save.data.practicemode ? 'Practice mode On' : 'Practice mode Off'), true, false);
-					ctrl.isMenuItem = true;
-					ctrl.targetY = curSelected - 2;
-					grpMenuShit.add(ctrl);
-				case 3:
 					if (PlayState.isStoryMode){
 						FlxG.switchState(new StoryMenuState());
 					}else{
