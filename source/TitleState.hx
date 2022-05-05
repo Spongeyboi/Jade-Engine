@@ -36,6 +36,8 @@ class TitleState extends MusicBeatState
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
 
+	var bumpcam:Bool = false;
+
 	var curWacky:Array<String> = [];
 
 	var wackyImage:FlxSprite;
@@ -360,7 +362,9 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
-FlxTween.tween(FlxG.camera, {zoom: 0.3}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
+		if (bumpcam == true){
+			FlxTween.tween(FlxG.camera, {zoom: 1.2}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
+		}
 
 		logoBl.animation.play('bump');
 		danceLeft = !danceLeft;
@@ -429,7 +433,16 @@ FlxTween.tween(FlxG.camera, {zoom: 0.3}, 0.3, {ease: FlxEase.quadOut, type: BACK
 	{
 		if (!skippedIntro)
 		{
+			bumpcam = true;
+
 			remove(ngSpr);
+
+			logoBl.screenCenter();
+			FlxTween.tween(logoBl, {x: -150, y: -100}, 5, {ease: FlxEase.quadInOut});
+			gfDance.x = 1920;
+			FlxTween.tween(gfDance, {x: FlxG.width * 0.4}, 5, {ease: FlxEase.quadInOut});
+			
+
 
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
