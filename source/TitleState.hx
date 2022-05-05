@@ -379,6 +379,7 @@ FlxTween.tween(FlxG.camera, {zoom: 0.3}, 0.3, {ease: FlxEase.quadOut, type: BACK
 			// credTextShit.visible = true;
 			case 3:
 				addMoreText('Spongey');
+				addMoreText('Cosmic Mario');
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
 			case 4:
