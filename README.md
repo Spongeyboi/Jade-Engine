@@ -13,7 +13,7 @@
 
 Friday Night Funkin: Jade Engine is a custom version of Kade Engine (specifically, KE-1.0) with a hell ton of more features to improve your overall experience with fnf.
 
-**Credits**
+## Credits
 * Spongey - Main Programmer
 * SUS - Main Programmer 
 * SylveonDev - Also The Main Programmer
