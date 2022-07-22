@@ -1,3 +1,7 @@
+# Project dead!
+Nobody uses Kade Engine anymore, and Kade Engine was shut down a while ago.Jade Engine was a little side project to pass by time.
+Use Psych Engine, Austin Engine, Os engine instead
+
 ![JadeEngineLogo](https://github.com/Spongeyboi/Jade-Engine/raw/master/jadeLogo.png)
 
 ![image](https://user-images.githubusercontent.com/26305836/110532077-3c1d3780-80d1-11eb-8348-0e63d5c0f4f1.png)
